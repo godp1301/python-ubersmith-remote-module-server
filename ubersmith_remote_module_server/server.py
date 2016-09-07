@@ -20,6 +20,7 @@ class Server(object):
     def __init__(self, modules):
         self.router = router.Router()
         self.app = Flask(__name__)
+        self.app.config['PROPAGATE_EXCEPTIONS']
         self.api = api.Api(modules, self.app, self.router)
 
     def run(self, *args, **kwargs):
